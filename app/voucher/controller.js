@@ -13,7 +13,7 @@ module.exports = {
         .populate("category")
         .populate("nominals");
 
-      res.render("admin/Voucher/view_Voucher", {
+      res.render("admin/voucher/view_voucher", {
         voucher,
         alert,
         title: "Halaman Voucher",
