@@ -31,6 +31,8 @@ module.exports = {
         .populate("category")
         .populate("nominals")
         .populate("user", "_id name phoneNumber");
+      
+      const payments = await Payment.find()
 
       if (!voucher) {
         return res.status(404).json({
@@ -40,7 +42,7 @@ module.exports = {
 
       res.status(200).json({
         message: "Success get data",
-        data: voucher,
+        data: {voucher, payments},
       });
     } catch (error) {
       res.status(500).json({
